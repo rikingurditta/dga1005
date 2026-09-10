@@ -32,6 +32,14 @@ $$
 
 ![image-20260906152023649](/Users/rikin/Library/Application Support/typora-user-images/image-20260906152023649.png)
 
+---
+
+# Summary
+
+A ROM is used to compress the motions of an input simulation, and the nonlinear dynamics of this simulation (including interactions) are learned using an MLP. A novel training method is proposed to enable learning of coherent trajectories across time.
+
+---
+
 ## Training data
 
 Training data is $10^5$ to $10^6$ frames of animations simulated by some other method

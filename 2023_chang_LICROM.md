@@ -29,7 +29,16 @@ $$
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\partials}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\d}{\, \mathrm{d}}
 $$
+
+---
+
+## Summary
+
+Typically, each DoF of a reduced order model affects the dynamics of discretized data. Instead, we can assign each DoF a continuous map, so that the dynamics are of the actual continuous PDE, rather than any particular discretization. A PointNet and MLP are learned to represent the reduced basis of the PDE solution.
+
+---
 
 ## Discrete vs continuous
 
@@ -70,3 +79,27 @@ $$
 
 ## Implicit dynamics
 
+Fairly standard elasticity implicit time step: Minimize energy
+$$
+E(\qq) = \int_{\XX \in \Omega} \frac{1}{2h^2} \norm{\WW(\XX) \qq - \uu_\text{pred}}_g +  \Psi(\XX + \WW(\XX)\qq) \d \mathrm{Vol}
+$$
+
+- $g$ is kinetic energy
+- $\Psi$ is elastic energy density
+- $\uu_\text{pred}^{j+1} = \uu^j + h\mathbf v^j + h^2 \MM^{-1} \ff_\text{ext}$
+
+The velocity is approximated as
+$$
+\mathbf v^j = \frac{\uu^j - \uu^{j-1}}{h} = \WW(\XX) \frac{\qq^j - \qq^{j-1}}{h} = \WW(\XX) \dot \qq^j
+$$
+Integral is approximated by cubature:
+$$
+E(\qq) \approx \sum_i \frac{w_i}{2h^2} \norm{\WW(\XX_i) \qq - \uu_\text{pred}}_g +  w_i \Psi(\XX_i + \WW(\XX_i)\qq) \d \mathrm{Vol}
+$$
+where $w_i$ is the weight for cubature point $i$
+
+## Minimization via cubature
+
+...
+
+## Results

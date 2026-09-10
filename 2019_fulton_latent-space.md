@@ -18,7 +18,16 @@ $$
 \DeclareMathOperator*{argmin}{argmin}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\partials}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inv}[1]{#1^{-1}}
 $$
+
+---
+
+# Summary
+
+Typical ROM models $\uu = \UU \qq$, so the actual motions $\uu$ are calculated as a linear function $\UU$ of the reduced DoF $\qq$. To encode nonlinear motions, we can replace $\UU$ with a neural deformation function $\ppsi$. This is learned as an autoencoder, where $\uu \approx \ppsi(\inv \ppsi(\uu))$. Some tricks are developed to learn a good $\ppsi$ and take its derivatives.
+
+---
 
 ## Background: Linear reduced model
 

@@ -32,6 +32,14 @@ $$
 \newcommand{\d}{\, \mathrm{d}}
 $$
 
+---
+
+## Summary
+
+Every shape discretization yields an indicator function, which can be used to define skinning weights. This paper learns the skinning weights and does simulation on them.
+
+---
+
 ## Method
 
 Input is rest state geometry with an inside-outside function $\Phi: \R^3 \to \R$ where $\Phi(\xx) = 1$ inside the object, $\Phi(\xx) = 0$ outside, and the boundary may be blurry
@@ -80,4 +88,19 @@ These integrals are computed using Monte Carlo
 
 ### Neural skinning field loss
 
-To learn $\WW$
+To learn skinning weights $\WW_\theta$, need to have low elastic potential energy for physical plausibility, but also need to emphasize orthonormality to avoid learning trivial solution:
+$$
+\theta^* = \argmin_\theta \lambda_\text{elastic} \mathcal L_\text{elastic} + \lambda_\text{ortho} \mathcal L_\text{ortho}
+$$
+$\lambda$s seem to be user defined regularization weights, I wonder if this makes it not automatic
+$$
+\begin{align*}
+\mathcal L_\text{elastic} &= \int_{\R^3} \Phi(\XX) \Psi(\phi_\theta(\XX, \ZZ)) \d \XX \\
+\mathcal L_\text{ortho} &= \sum_i \sum_j \int_{\R^3} \Phi(\XX) \left(\WW^i_\theta(\XX)^\top \WW^j_\theta(\XX) - \delta_{ij} \right)^2 \d \XX
+\end{align*}
+$$
+(recall that $\WW$ is a part of $\phi$, so $\phi$ depends on $\theta$ as well)
+
+## Time stepping
+
+just standard stuff

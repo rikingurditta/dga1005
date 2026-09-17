@@ -78,6 +78,7 @@ bruh
 Typical formulation is PDE that describes local dynamics, instead will use neural ODE that describes global dynamics.
 
 ODE is in $\zz(t) = (\qq(t), \pp(t))$, where $\qq$ is latent geometry and $\pp$ is its momentum. It is not based on Navier-Stokes, but instead on the fluid geometry
+
 $$
 \begin{align*}
 \dbyd{\qq}{t} &= \inv \mm \pp \\

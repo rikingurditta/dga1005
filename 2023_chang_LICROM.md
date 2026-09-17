@@ -45,15 +45,19 @@ Typically, each DoF of a reduced order model affects the dynamics of discretized
 Typical reduced order modelling setup for a mesh:
 
 $\uu(\XX, t) \in \R^{3n}$ is displacement map, and
+
 $$
 \uu = \overline \UU \qq
 $$
+
 Where $\qq$ is reduced model, aka reduced degrees of freedom, and $\overline \UU$ maps reduced coordinates to displacements of each vertex in $\R^{3n}$. i.e., $\overline \UU$ is tied up with the discretization of the mesh, where each row corresponds to a discretized vertex's coordinate.
 
 Instead we can use a continuous map $\WW(\XX)$ that weights the reduced model DOFs to each point in the domain:
+
 $$
 \uu(\XX, t) = \WW(\XX) \qq(t)
 $$
+
 Now since the reduced model is discretization-independent, it can support multiple discretizations of the same geometry (e.g. different LOD meshes, or shapes that can get cut), or multiple geometries.
 
 ## Discretization-blind subspace learning
@@ -73,6 +77,7 @@ The paper uses a PointNet encoder for $P$ and a neural implicit field for $\WW$
 $\tilde n$ points are used for each observation point cloud $(\tilde \XX^j, \tilde \uu^j)$, and these are further subsampled to $\tilde{\tilde n}$ because PointNets are expensive for large sets of points. Subsampling operator is denoted $S$
 
 Uses $L_2$ loss
+
 $$
 \mathcal L = \sum_j^m \sum_i^{\tilde n} \norm{ \WW(\XX_i) P(S((\tilde \XX^j, \tilde \uu^j))) - \uu_i^j }_2
 $$
@@ -80,6 +85,7 @@ $$
 ## Implicit dynamics
 
 Fairly standard elasticity implicit time step: Minimize energy
+
 $$
 E(\qq) = \int_{\XX \in \Omega} \frac{1}{2h^2} \norm{\WW(\XX) \qq - \uu_\text{pred}}_g +  \Psi(\XX + \WW(\XX)\qq) \d \mathrm{Vol}
 $$
@@ -89,13 +95,17 @@ $$
 - $\uu_\text{pred}^{j+1} = \uu^j + h\mathbf v^j + h^2 \MM^{-1} \ff_\text{ext}$
 
 The velocity is approximated as
+
 $$
 \mathbf v^j = \frac{\uu^j - \uu^{j-1}}{h} = \WW(\XX) \frac{\qq^j - \qq^{j-1}}{h} = \WW(\XX) \dot \qq^j
 $$
+
 Integral is approximated by cubature:
+
 $$
 E(\qq) \approx \sum_i \frac{w_i}{2h^2} \norm{\WW(\XX_i) \qq - \uu_\text{pred}}_g +  w_i \Psi(\XX_i + \WW(\XX_i)\qq) \d \mathrm{Vol}
 $$
+
 where $w_i$ is the weight for cubature point $i$
 
 ## Minimization via cubature

@@ -61,9 +61,11 @@ So each frame of subspace data is $\zz_t$ or $\ww_t$ respectively
 ### Initial model
 
 Because of inertia, absent external forces we imagine that
+
 $$
 \zz_t = \aalpha \odot \zz_{t-1} + \bbeta \odot (\zz_{t-1} - \zz_{t-2})
 $$
+
 (where $\odot$ is component-wise multiplication and $\aalpha, \bbeta$ are some parameter vectors)
 
 We can find $\aalpha$ and $\bbeta$ using linear least squares, and use them to calculate a first guess $\overline \zz_t$.
@@ -71,9 +73,11 @@ We can find $\aalpha$ and $\bbeta$ using linear least squares, and use them to c
 ### Extended model
 
 Since $\overline \zz_t$ does not take into account external objects, a neural network $\PPhi$ is used to figure out the residual effects to guess $\zz_t$:
+
 $$
 \zz_t = \overline \zz_t + \PPhi \left( \overline \zz_t, \zz_{t-1}, \ww_t \right)
 $$
+
 The paper uses 10 layer network with ReLU activation
 
 ### Training

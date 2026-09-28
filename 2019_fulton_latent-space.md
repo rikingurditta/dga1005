@@ -137,9 +137,9 @@ We use the decoder parametrization $\uu = \ppsi(\zz)$ for our optimization:
 $$
 \zz_{n+1} = \argmin_\zz \frac{1}{2h^2} \norm{\ppsi(\zz) - (2\uu_n - \uu_{n-1})}_\MM^2 + V(\ppsi(\zz))
 $$
-\
-This still requires computing a large matrix product $\uu^\top \MM \uu$, so we can speed it up by factoring out $\UU$. If $\qq = \pphi(\zz)$ then $\uu = \UU \qq$, so we can rewrite our optimization as
 
+
+This still requires computing a large matrix product $\uu^\top \MM \uu$, so we can speed it up by factoring out $\UU$. If $\qq = \pphi(\zz)$ then $\uu = \UU \qq$, so we can rewrite our optimization as
 $$
 \zz_{n+1} = \argmin_\zz \frac{1}{2h^2} \norm{\pphi(\zz) - (2\qq_n - \qq_{n-1})}^2_{\tilde \MM} + V(\ppsi(\zz))
 $$

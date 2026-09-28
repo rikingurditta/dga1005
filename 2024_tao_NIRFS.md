@@ -34,6 +34,7 @@ $$
 \newcommand{\d}{\, \mathrm{d}}
 \newcommand{\dbyd}[2]{\frac{\d #1}{\d #2}}
 \newcommand{\partials}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inv}[1]{#1^{-1}}
 \DeclareMathOperator{SDF}{SDF}
 $$
 

@@ -2,6 +2,7 @@
 
 | Title                                                        | Authors               | Year | Notes |
 | :----------------------------------------------------------- | :-------------------- | :--- | :---- |
+| [Model Reduction for Real-time Fluids](2006_treuille_fluids) | Treuille et al.       | 2006 |       |
 | [Model-Reduced Variational Fluid Simulation](2015_liu_fluid) | Liu et al.            | 2015 |       |
 | [Latent-space Dynamics for Reduced Deformable Simulation](2019_fulton_latent-space) | Fulton et al.         | 2019 |       |
 | [Subspace Neural Physics: Fast Data-Driven Interactive Simulation](2019_holden_subspace-neural) | Holden et al.         | 2019 |       |

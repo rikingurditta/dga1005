@@ -19,3 +19,10 @@
 - address unfinished notes (with "TODO" in list)
 - add missing summaries
 - look at and compare results for various methods
+
+## other papers
+
+
+| Title                                 | Authors     | Year | Notes |
+| :------------------------------------ | :---------- | :--- | :---- |
+| [Vertex Block Descent](2024_chen_VBD) | Chen et al. | 2024 |       |

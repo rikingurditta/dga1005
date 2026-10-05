@@ -1,6 +1,6 @@
-# Model-Reduced Variational Fluid Simulation
+# Model Reduction for Real-time Fluids
 
-Adrien Treuille, Andrew Lewis, Zoran Popović,
+Adrien Treuille, Andrew Lewis, Zoran Popović
 
 $$
 \newcommand{\ff}{\mathbf f}

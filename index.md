@@ -20,6 +20,7 @@ $$
 | [Subspace Neural Physics: Fast Data-Driven Interactive Simulation](2019_holden_subspace-neural)                                 | Holden et al.         | 2019 |       |
 | [Deep Fluids: A Generative Network for Parameterized Fluid  Simulations](2019_kim_deep-fluids)                                  | Kim et al. 2019       | 2019 |       |
 | [LiCROM: Linear-Subspace Continuous Reduced Order Modeling with Neural Fields](2023_chang_LiCROM.md)                            | Kim et al.            | 2023 |       |
+| [PolyStokes: A Polynomial Model Reduction Method for Viscous Fluid Simulation](2023_panuelos_polystokes)                        |                       |      |       |
 | [Accelerate Neural Subspace-Based Reduced-Order Solver of Deformable Simulation by Lipschitz Optimization](2024_lyu_accelerate) | Lyu et al.            | 2024 |       |
 | [Simplicits: Mesh-Free, Geometry-Agnostic, Elastic Simulation](2024_modi_simplicits)                                            | Modi et al.           | 2024 |       |
 | [Neural Implicit Reduced Fluid Simulation](2024_tao_NIRFS)                                                                      | Tao et al.            | 2024 |       |
